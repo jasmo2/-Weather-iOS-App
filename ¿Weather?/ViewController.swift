@@ -23,11 +23,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
       var url =  NSURL(string: "http://www.weather-forecast.com/locations/Bogota/forecasts/latest")
+        
         var errorUrl:Bool = false
         if true{
           let task = NSURLSession.sharedSession().dataTaskWithURL(url!){
                 (data,response,error) in
-            var weather:String
+                var weather:String = ""
                 if error == nil{
                     var urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
                     var urlContentArray = urlContent.componentsSeparatedByString("<span class=\"phrase\">")
@@ -44,19 +45,19 @@ class ViewController: UIViewController {
                 else{
                     errorUrl = true
                 };
-
-                }
-            task.resume()
             dispatch_async(dispatch_get_main_queue()){
                 if errorUrl == false{
-                 resultLabel.text = weather
-                
+                    self.resultLabel.text = weather
+                    
                 }else{
                     self.showError()
                 }
-
-            
+                
+                
             }
+                }
+            task.resume()
+           
             
     
         }
