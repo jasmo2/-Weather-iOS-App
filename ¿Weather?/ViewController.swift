@@ -18,25 +18,46 @@ class ViewController: UIViewController {
         resultLabel.text = "The city: \(cityText.text) you input was not found"
 
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
       var url =  NSURL(string: "http://www.weather-forecast.com/locations/Bogota/forecasts/latest")
+        var errorUrl:Bool = false
         if true{
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!){
+          let task = NSURLSession.sharedSession().dataTaskWithURL(url!){
                 (data,response,error) in
-                
+            var weather:String
                 if error == nil{
                     var urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
-                    var urlContentArray = urlContent.componentsSeparatedByString("<p class=\"summary\">")
-                    println(urlContentArray[1])
+                    var urlContentArray = urlContent.componentsSeparatedByString("<span class=\"phrase\">")
+                    
+                    if urlContentArray.count > 0 {
+                        var weatherArray = urlContentArray[1].componentsSeparatedByString("</span>")
+//                        println( "weather = \(_stdlib_getTypeName(weatherArray[0]))")
+                        weather = weatherArray[0] as String
+
+                    }else {
+                        errorUrl = true
+                    }
                 }
                 else{
-                    self.showError()
+                    errorUrl = true
                 };
 
                 }
             task.resume()
+            dispatch_async(dispatch_get_main_queue()){
+                if errorUrl == false{
+                 resultLabel.text = weather
+                
+                }else{
+                    self.showError()
+                }
+
+            
+            }
+            
     
         }
     }
