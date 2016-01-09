@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var cityText: UITextField!
     @IBOutlet var resultLabel: UILabel!
     @IBAction func findWeatherButton(sender: AnyObject) {
-       cityText.text = cityText.text.stringByReplacingOccurrencesOfString(" ", withString: "-")
+       cityText.text = cityText.text!.stringByReplacingOccurrencesOfString(" ", withString: "-")
         var url =  NSURL(string: "http://www.weather-forecast.com/locations/\(cityText.text)/forecasts/latest")
 
         var errorUrl:Bool = false
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
                 (data,response,error) in
                 var weather:String = ""
                 if error == nil{
-                    var urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
+                    var urlContent = NSString(data: data!, encoding: NSUTF8StringEncoding) as NSString!
                     var urlContentArray = urlContent.componentsSeparatedByString("<span class=\"phrase\">")
                     
                     if urlContentArray.count > 1 {
@@ -66,16 +66,26 @@ class ViewController: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+
+        return UIInterfaceOrientationMask.Portrait
     }
+//    override func supportedInterfaceOrientations() -> Int {
+//        return UIInterfaceOrientation.Portrait.rawValue
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            self.view.endEditing(true)
+        }
+        super.touchesBegan(touches, withEvent:event)
     }
+//    func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+//        self.view.endEditing(true)
+//    }
     
     func textFieldShouldReturn(cityText: UITextField!)-> Bool{
         cityText.resignFirstResponder()

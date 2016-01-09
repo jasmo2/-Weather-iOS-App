@@ -13,7 +13,6 @@
 		9F0C7A1A1A960D460000BC2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C7A191A960D460000BC2A /* Images.xcassets */; };
 		9F0C7A1D1A960D460000BC2A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C7A1B1A960D460000BC2A /* LaunchScreen.xib */; };
 		9F0C7A291A960D460000BC2A /* _Weather_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0C7A281A960D460000BC2A /* _Weather_Tests.swift */; };
-		9F5C58951A96D78700F44608 /* weatherPic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9F5C58941A96D78700F44608 /* weatherPic.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +36,6 @@
 		9F0C7A221A960D460000BC2A /* ¿Weather?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "¿Weather?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0C7A271A960D460000BC2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F0C7A281A960D460000BC2A /* _Weather_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _Weather_Tests.swift; sourceTree = "<group>"; };
-		9F5C58941A96D78700F44608 /* weatherPic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = weatherPic.jpeg; path = ../../../../Pictures/weatherPic.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				9F0C7A161A960D460000BC2A /* Main.storyboard */,
 				9F0C7A191A960D460000BC2A /* Images.xcassets */,
 				9F0C7A1B1A960D460000BC2A /* LaunchScreen.xib */,
-				9F5C58941A96D78700F44608 /* weatherPic.jpeg */,
 				9F0C7A101A960D460000BC2A /* Supporting Files */,
 			);
 			path = "¿Weather?";
@@ -159,6 +156,8 @@
 		9F0C7A051A960D460000BC2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = jasmo2;
 				TargetAttributes = {
@@ -198,7 +197,6 @@
 				9F0C7A181A960D460000BC2A /* Main.storyboard in Resources */,
 				9F0C7A1D1A960D460000BC2A /* LaunchScreen.xib in Resources */,
 				9F0C7A1A1A960D460000BC2A /* Images.xcassets in Resources */,
-				9F5C58951A96D78700F44608 /* weatherPic.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
